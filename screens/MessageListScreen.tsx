@@ -2,6 +2,7 @@ import React from 'react'
 import { FlatList, Pressable, StyleSheet, TouchableOpacity } from 'react-native'
 import { Text, View } from '../components/Themed'
 import { FontAwesome } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native'
 
 const DATA = [
   {
@@ -20,7 +21,6 @@ const DATA = [
     id: '63576c7f-9594-4522-a877-9529a91450da',
     title: '🏡',
     subtitle: '😆',
-    time: 'Yesterday',
   },
 
   {
@@ -28,25 +28,33 @@ const DATA = [
     title: '🏢',
     subtitle:
       'No problem, we will see you on Wednesday. This is a very long reply. It just keeps going',
-    time: 'Yesterday',
   },
   {
     id: '20cf280e-cdc7-4365-8b6b-1e2a7a194269',
     title: '👞',
     subtitle: 'Lovely to meet you yesterday.',
-    time: 'Yesterday',
   },
 ]
 
 interface ItemProps {
   title: string
   subtitle: string
-  time: string
 }
 
-const Item = ({ title, subtitle, time }: ItemProps) => {
+const Item = ({ title, subtitle }: ItemProps) => {
+  const navigation = useNavigation()
+
+  const handleNavigation = () => {
+    navigation.navigate('Root', {
+      screen: 'Messages',
+      params: {
+        screen: 'MessageDetailsScreen',
+      },
+    })
+  }
+
   return (
-    <TouchableOpacity style={{ flex: 1 }}>
+    <TouchableOpacity style={{ flex: 1 }} onPress={handleNavigation}>
       <View style={styles.row}>
         <View style={styles.circleIcon}>
           <Text style={styles.title}>{title}</Text>
@@ -58,26 +66,15 @@ const Item = ({ title, subtitle, time }: ItemProps) => {
           </View>
         </View>
       </View>
-      <View
-        style={{
-          flex: 1,
-          alignItems: 'flex-end',
-        }}
-      >
-        <Text>{time}</Text>
-      </View>
-      <View
-        style={styles.separator}
-        lightColor="#F5F5F5"
-        darkColor="rgba(255,255,255,0.1)"
-      />
+
+      <View style={styles.separator} lightColor="#F5F5F5" />
     </TouchableOpacity>
   )
 }
 
-export default function TabTwoScreen() {
+export default function MessageListScreen() {
   const renderItem = ({ item }: { item: ItemProps }) => (
-    <Item title={item.title} subtitle={item.subtitle} time={item.time} />
+    <Item title={item.title} subtitle={item.subtitle} />
   )
 
   return (
@@ -96,11 +93,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 16,
+    paddingTop: 4,
   },
-
   row: {
     flexDirection: 'row',
-    // marginVertical: 8,
     alignItems: 'center',
   },
   title: {
@@ -131,8 +127,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   separator: {
+    alignSelf: 'center',
     height: 1,
     width: '90%',
-    marginVertical: 4,
+    marginVertical: 8,
   },
 })
