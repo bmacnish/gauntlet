@@ -15,9 +15,10 @@ const linking: LinkingOptions<RootStackParamList> = {
     screens: {
       Root: {
         screens: {
-          Messages: {
+          MessageNavigator: {
             screens: {
-              MessagesScreen: 'one',
+              Messages: 'one',
+              Name: 'two',
             },
           },
           AudioControls: {
