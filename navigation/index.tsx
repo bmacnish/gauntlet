@@ -26,7 +26,7 @@ import {
   RootTabScreenProps,
 } from '../types'
 import LinkingConfiguration from './LinkingConfiguration'
-import MessageNavigator from './customNavigation'
+import MessageNavigator from './MessageNavigator'
 
 export default function Navigation({
   colorScheme,
@@ -80,16 +80,16 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="AudioControls"
+      initialRouteName="MessageNavigator"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}
     >
       <BottomTab.Screen
-        name="Messages"
+        name="MessageNavigator"
         component={MessageNavigator}
-        options={({ navigation }: RootTabScreenProps<'Messages'>) => ({
-          title: 'Messsages',
+        options={({ navigation }: RootTabScreenProps<'MessageNavigator'>) => ({
+          headerShown: false,
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="envelope-o" color={color} />
           ),

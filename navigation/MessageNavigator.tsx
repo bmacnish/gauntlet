@@ -9,14 +9,15 @@ export default function MessageNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="MessageList"
+        name="Messages"
         component={MessageListScreen}
-        options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="MessageDetailsScreen"
+        name="Name"
         component={MessageDetailsScreen}
-        options={{ headerShown: false }}
+        options={{
+          title: 'xxx'
+        }}
       />
     </Stack.Navigator>
   )
