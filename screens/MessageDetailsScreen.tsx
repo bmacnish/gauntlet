@@ -7,25 +7,18 @@ import { View, Text } from '../components/Themed'
 
 const CONVERSATION_DATA = [
   {
-    text: 'This is a message. Hello!',
-  },
-  {
-    text: 'A reply to the inital message. What are you up to?',
-    reply: true,
-  },
-  {
-    text: 'Planning out some designs for this messaging app! What do you think?',
-  },
-  {
-    text: 'Looking good, looking forward to seeing the final thing',
-    reply: true,
-  },
-  {
-    text: 'Good luck!',
-    reply: true,
-  },
-  {
-    text: 'Thanks',
+    message: 'Hey, what are you up to?',
+    options: {
+      replyOne: {
+        id: '1',
+        text: 'Not much.',
+      },
+      replyTwo: {
+        id: '2',
+        text: 'Doing some chores.',
+      },
+    },
+    timeout: 500,
   },
 ]
 
@@ -34,17 +27,9 @@ export default function MessageDetailsScreen() {
 
   return (
     <View style={styles.container}>
-      {CONVERSATION_DATA.map((bubbleData, index) => {
-        if (index <= conversationIndex) {
-          return (
-            <Bubble
-              text={bubbleData.text}
-              reply={bubbleData.reply}
-              key={index}
-            />
-          )
-        }
-      })}
+      {CONVERSATION_DATA.map((bubbleData) => (
+        <Bubble text={bubbleData.message} />
+      ))}
 
       <View style={styles.inputContainer}>
         <View style={styles.input}>
@@ -55,7 +40,7 @@ export default function MessageDetailsScreen() {
             setConversationIndex(conversationIndex + 1)
           }}
         >
-          <FontAwesome name='send' size={24} color='black' />
+          <FontAwesome name="send" size={24} color="black" />
         </TouchableOpacity>
       </View>
     </View>
