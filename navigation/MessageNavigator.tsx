@@ -8,15 +8,12 @@ const Stack = createStackNavigator()
 export default function MessageNavigator() {
   return (
     <Stack.Navigator>
+      <Stack.Screen name='Messages' component={MessageListScreen} />
       <Stack.Screen
-        name="Messages"
-        component={MessageListScreen}
-      />
-      <Stack.Screen
-        name="Name"
+        name='Name'
         component={MessageDetailsScreen}
         options={{
-          title: 'xxx'
+          title: 'xxx',
         }}
       />
     </Stack.Navigator>

@@ -53,17 +53,17 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Root"
+        name='Root'
         component={BottomTabNavigator}
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="NotFound"
+        name='NotFound'
         component={NotFoundScreen}
         options={{ title: 'Oops!' }}
       />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
+        <Stack.Screen name='Modal' component={ModalScreen} />
       </Stack.Group>
     </Stack.Navigator>
   )
@@ -80,18 +80,18 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="MessageNavigator"
+      initialRouteName='MessageNavigator'
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}
     >
       <BottomTab.Screen
-        name="MessageNavigator"
+        name='MessageNavigator'
         component={MessageNavigator}
         options={({ navigation }: RootTabScreenProps<'MessageNavigator'>) => ({
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="envelope-o" color={color} />
+            <TabBarIcon name='envelope-o' color={color} />
           ),
           headerRight: () => (
             <Pressable
@@ -101,7 +101,7 @@ function BottomTabNavigator() {
               })}
             >
               <FontAwesome
-                name="info-circle"
+                name='info-circle'
                 size={25}
                 color={Colors[colorScheme].text}
                 style={{ marginRight: 15 }}
@@ -111,12 +111,12 @@ function BottomTabNavigator() {
         })}
       />
       <BottomTab.Screen
-        name="AudioControls"
+        name='AudioControls'
         component={AudioControlsScreen}
         options={{
           title: 'Audio',
           tabBarIcon: ({ color }) => (
-            <TabBarIcon name="headphones" color={color} />
+            <TabBarIcon name='headphones' color={color} />
           ),
         }}
       />

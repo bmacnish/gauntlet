@@ -62,12 +62,12 @@ const Item = ({ title, subtitle }: ItemProps) => {
         <View style={styles.messageContainer}>
           <Text style={styles.subtitle}>{subtitle}</Text>
           <View style={styles.arrowContainer}>
-            <FontAwesome name="angle-right" size={16} color="black" />
+            <FontAwesome name='angle-right' size={16} color='black' />
           </View>
         </View>
       </View>
 
-      <View style={styles.separator} lightColor="#F5F5F5" />
+      <View style={styles.separator} lightColor='#F5F5F5' />
     </TouchableOpacity>
   )
 }

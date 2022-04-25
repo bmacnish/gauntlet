@@ -13,7 +13,7 @@ const CONVERSATION_DATA = [
     reply: true,
   },
   {
-    text: 'Plannign out some designs for this messaging app! What do you think?'
+    text: 'Plannign out some designs for this messaging app! What do you think?',
   },
   {
     text: 'Looking good, looking forward to seeing the final thing',
@@ -22,9 +22,8 @@ const CONVERSATION_DATA = [
   {
     text: 'Good luck!',
     reply: true,
-  }
+  },
 ]
-
 
 export default function MessageDetailsScreen() {
   const [conversationIndex, setConversationIndex] = useState(0)
@@ -38,14 +37,10 @@ export default function MessageDetailsScreen() {
     <View style={styles.container}>
       {CONVERSATION_DATA.map((bubbleData, index) => {
         if (index <= conversationIndex) {
-          return (
-          <Bubble 
-            text={ bubbleData.text } 
-            reply={ bubbleData.reply } 
-          />
-        )}
+          return <Bubble text={bubbleData.text} reply={bubbleData.reply} />
+        }
       })}
-  
+
       <TouchableOpacity style={styles.advance} onPress={advanceConversation}>
         <Text>Advance</Text>
       </TouchableOpacity>
@@ -64,6 +59,6 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     backgroundColor: 'lightblue',
     padding: 20,
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 })

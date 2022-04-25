@@ -7,12 +7,17 @@ interface BubbleProps {
   reply?: boolean
 }
 
-export default function Bubble({text, reply }: BubbleProps) {
+export default function Bubble({ text, reply }: BubbleProps) {
   return (
-    <View style={[styles.bubble, { 
-      alignSelf: reply ? 'flex-start' : 'flex-end', 
-      backgroundColor: reply ? 'yellow' : 'violet',
-    }]}>
+    <View
+      style={[
+        styles.bubble,
+        {
+          alignSelf: reply ? 'flex-start' : 'flex-end',
+          backgroundColor: reply ? 'yellow' : 'violet',
+        },
+      ]}
+    >
       <Text>{text}</Text>
     </View>
   )
