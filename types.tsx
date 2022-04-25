@@ -26,8 +26,13 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
   NativeStackScreenProps<RootStackParamList, Screen>
 
 export type RootTabParamList = {
-  Messages: undefined
+  MessageNavigator: NavigatorScreenParams<MessageStackParamList>
   AudioControls: undefined
+}
+
+type MessageStackParamList = {
+  Messages: undefined
+  Name: undefined
 }
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =

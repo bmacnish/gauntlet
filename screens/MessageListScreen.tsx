@@ -46,9 +46,9 @@ const Item = ({ title, subtitle }: ItemProps) => {
 
   const handleNavigation = () => {
     navigation.navigate('Root', {
-      screen: 'Messages',
+      screen: 'MessageNavigator',
       params: {
-        screen: 'MessageDetailsScreen',
+        screen: 'Name',
       },
     })
   }
