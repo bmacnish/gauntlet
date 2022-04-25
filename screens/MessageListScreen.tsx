@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, Pressable, StyleSheet, TouchableOpacity } from 'react-native'
+import { FlatList, StyleSheet, TouchableOpacity } from 'react-native'
 import { Text, View } from '../components/Themed'
 import { FontAwesome } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
